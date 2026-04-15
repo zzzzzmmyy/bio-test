@@ -1,35 +1,88 @@
-
+<!--
+  包含三个主要部分：开始页面、测试页面和结果页面
+-->
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
+  <!-- 设置字符编码为UTF-8 -->
   <meta charset="UTF-8">
+  <!-- 页面标题 -->
   <title>测测你是那种细菌or真菌</title>
+  <!-- 引入样式表 -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- 开始页面 -->
+  <!-- 开始页面：用户首次访问时显示 -->
   <div id="start-page" class="container">
+    <!-- 页面标题 -->
     <h1 class="title">测一测你是什么类型的细菌or真菌</h1>
+
+    <!-- 卡片容器，包含介绍和开始按钮 -->
     <div class="card start-card">
+      <!-- 测试介绍文字 -->
       <p class="intro">通过简单的10道题目，探索你的微生物人格类型！</p>
-      <button onclick="startTest()" class="start-btn">开始测试</button>
+
+      <!-- 开始测试按钮，点击后进入测试页面 -->
+      <button id="start-btn" class="start-btn">开始测试</button>
     </div>
   </div>
 
-  <!-- 测试页面 -->
+  <!-- 测试页面：显示测试题目和选项 -->
   <div id="test-page" class="container" style="display: none;">
+
+    <!-- 卡片容器，包含进度条、题目和按钮 -->
     <div class="card">
+
+      <!-- 进度条容器 -->
       <div class="progress-container">
+        <!-- 进度条，动态显示答题进度 -->
         <div class="progress-bar" id="progress-bar"></div>
       </div>
+
+      <!-- 题目容器，通过JavaScript动态渲染 -->
       <div id="questions-container"></div>
-      <button onclick="calculateResult()" class="submit-btn">查看结果</button>
+
+      <!-- 按钮容器，包含返回和提交按钮 -->
+      <div class="button-container">
+        <!-- 返回首页按钮 -->
+        <button id="back-btn" class="back-btn">返回首页</button>
+        <!-- 查看结果按钮 -->
+        <button id="submit-btn" class="submit-btn">查看结果</button>
+      </div>
+
     </div>
   </div>
 
+  <!-- 结果页面：显示测试结果 -->
+  <div id="result-page" class="container" style="display: none;">
+    <div class="card result-card">
+      <!-- 结果标题，动态填充 -->
+      <h1></h1>
+      <!-- 结果描述，动态填充 -->
+      <p></p>
+      <!-- 重新测试按钮 -->
+      <button id="restart-btn" class="start-btn">再测一次</button>
+      <!-- 了解更多按钮，点击显示模态框 -->
+      <button id="learn-more-btn" class="start-btn">了解更多</button>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
+  <!-- 了解更多模态框：显示详细结果信息 -->
+  <div id="learn-more-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <!-- 关闭按钮 -->
+      <span class="close-btn">&times;</span>
+      <!-- 模态框标题 -->
+      <h2>了解更多</h2>
+      <!-- 模态框内容，动态填充 -->
+      <p>待施工</p>
+    </div>
+  </div>
+
+  <!-- 主应用脚本 -->
+  <script type="module" src="./app.js"></script>
+
 </body>
 </html>
